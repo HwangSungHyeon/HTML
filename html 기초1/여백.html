@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #title{
+            padding: 20px 10px 5px 15px; /* 위쪽부터 시계방향 */
+        }
+        #boxwrap{
+            box-sizing: border-box;
+            background: pink;
+            width: 500px;
+            height: 200px;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 7px; /* 모서리를 둥글게 만드는 방법(테두리에 원을 씌운다)*/
+        }
+        #box1{
+            box-sizing: border-box;
+            border-radius: 5px;
+            background: rgb(223, 65, 65);
+            padding: 5px 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgb(86, 95, 226);
+        }
+
+        #box1 b{
+            margin: 100px;
+            padding: 30px;
+        }
+        #box1 span{
+            margin: 100px;
+            padding: 30px;
+        }
+        #box2{
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="title"> 여백 시작이다!!~~</h1>
+
+    <div id="boxwrap">
+        <div id="box1"> 
+            <span> 여백의 미 !</span>  <!-- span, b, i 는 인라인태그로 너비와 높이를 가지지 못한다.-->
+            <b> 여백이....</b> 
+            <i> 없어....</i>
+        </div>
+        <div id="box2"> 여유가 없네!!</div>
+    </div>
+</body>
+</html>
