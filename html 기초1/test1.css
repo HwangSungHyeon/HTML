@@ -1,0 +1,7 @@
+#box{
+    width: 200px;
+    height: 100px;
+    background: lightblue;
+    margin : 30px 50px;
+    padding: 20px;
+}

@@ -10,6 +10,16 @@
     
     <div id="box1">나는 static 이다.</div>
     <div id="box2">나는 relative 이다!</div>
-    <div id="box3">나는 absolute</div>
+    <div id="box3Parent">
+       <div id="box3">나는 absolute</div> 
+    </div>
+
+    <div id="wrap">
+        <div id="box4">
+            나는 브라우저화면에 고정
+            <a href="#box3">위로 이동</a>
+        </div>
+        <div id="box5">나도 화면에 고정인데...</div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,18 @@
+/* 메뉴만들기.css */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#wrap{
+    width: 1200px; /* 최대 너비 */
+    position: relative;
+    margin: 0 auto; /* (좌우 여백)브라우저 화면에 가운데 위치하게됨*/
+    
+}
+
+#header{
+    padding: 10px 20px;
+}

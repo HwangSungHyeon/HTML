@@ -20,6 +20,10 @@
     transition: all 1s;
 }
 
+#box3Parent{
+    position:relative;
+}
+
 #box3{
     width: 120px;
     height: 120px;
@@ -27,4 +31,22 @@
     position: absolute;
     right: 100px;
     top: 50px;
+}
+
+#wrap{
+    width: 1000px;
+    height: 1000px;
+
+}
+
+#box4{
+    position:fixed;
+    left: 50px;
+    bottom: 50px;
+}
+
+#box5{
+    position:sticky;
+    top:0px;
+    
 }
