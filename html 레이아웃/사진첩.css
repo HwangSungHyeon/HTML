@@ -1,0 +1,34 @@
+.imgbox{
+    margin-top: 20px;
+    height: 300px;
+}
+
+.imgcard{
+    float: left;
+    height: 300px;
+    width: 150px;
+}
+.imgcard img{
+    width: 100%;
+}
+
+.imgcard2{
+    height: 300px;
+    width: 150px;
+    margin: 0 10px;
+    float: left;
+    background-size: contain;
+}
+
+.imgcard2.a{
+    background: url("./logo2.png") no-repeat;
+    background-size: contain;
+}
+.imgcard2.b{
+    background: url("./logo1.jfif") no-repeat;
+    background-size: contain;
+}
+.imgcard2.c{
+    background: url("./logo3.gif") no-repeat;
+    background-size: contain;
+}

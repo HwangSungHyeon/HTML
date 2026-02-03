@@ -16,3 +16,38 @@
 #header{
     padding: 10px 20px;
 }
+
+#logoWrap{ /* img 태그 바깥쪽에 있는 태그에 크기를 조정해야 정확하다.*/
+    height: 50px;
+}
+#logoWrap img{ /* id가 logoWrap인 태그 밑에 있는 img태그를 선택해라 라는 뜻*/
+    height: 100%;
+    /*img의 비율의 영향을 주지 않으려면 높이나 너비 둘 중 하나만 준다.*/
+}
+
+/* 브라우저에 이미지 표현 2 */
+
+#logoImg{
+    height: 50px;
+    background: url("./logo1.jfif") no-repeat; /* 기본적으로 반복이므로 no-repeat을 해준다.*/
+    width: 100px;
+    /* background-size: contain; : 설정한 값에 맞게 나오게 해줌.*/
+    background-size: cover; /*높이와 너비중 큰쪽에 맞춰 나오게 해줌.*/
+}
+
+.menuLink{
+    font-size: 25px;  /* 기본 폰트 16px */
+    color: black;  /* 글자색 설정 */
+    text-decoration: none; /* 글자의 데코를 적용하지 않겠다. */
+    font-weight: 900; /* 폰트 굵기 설정 */
+    padding: 3px 7px;
+    margin: 0 20px;
+}
+
+/* 블럭태그들을 한줄로 표현하고자 할때 쓰는 방식 (정렬) */
+#logoWrap{
+    float: left;
+}
+#logoImg{
+    float: left;
+}
