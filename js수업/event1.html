@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 자바 스크립트의 변수는 복합타입으로 영향을 받지 않는다.
+        num=10;
+        num=3.14;
+        num="문자열";
+
+        // var는 재선언이 가능하여 헷갈릴 수 있으므로 잘 쓰지않는다. 
+        var num=13;
+        num=20;
+        var num=50;
+
+        // let은 var와 다르게 한번 선언한 변수 이름은 재선언이 불가능하기때문에 제일 많이 쓰임
+        let a= 40;
+        a=400;
+        // let a=60;
+
+        // const는 자봐에서 final과 같은 의미로 값을 변경할 수 없음
+        const b= 40;
+        // b=50;
+
+        Stirng_word="문자열";
+        int_num = 10;
+
+        // 자바스크립트에서 배열 만드는 법
+        // let arr = new Array();
+        // let arr2 = [10,20,30];  // 혹은 const arr2 = [10,20,30];
+
+        function 가입완료(){
+            alert("가입 되었습니다."); // alert : 알림창 ("알림창에 나올 내용");
+            let div = document.getElementById("me");
+            div.style.display="block";
+        }
+
+        function 클릭미(){
+            alert("하하하하하하하하 집에갈시간이다!");
+        }
+
+        function 여기야(){
+            let div = document.getElementById("me");   // 현재문서에서 가져와라 엘리멘트 id가 "me"인것을
+            div.style.display="none";    // 문자열로 써야한다.
+        }
+
+        function 결제완료(){
+            alert("결제가 완료되었습니다.");
+        }
+    </script>
+</head>
+<body>
+    
+    <button onclick="가입완료()">확인</button>
+    <div id="me" onclick="클릭미()">나를 클릭해줘!! </div> <!-- 태그이름이나 클래스를 사용하면 배열로 들어가기 때문에 id 를 사용하여 단일값으로 만들어준다. -->
+    <h3 onmouseover="여기야()"> 여기야!! 여기!! &nbsp;&nbsp;&nbsp;이리와!! </h3> <!-- &nbsp : 띄어쓰기 -->
+
+    <button onclick="결제완료()">결제</button>
+    <!-- 결제 버튼을 클릭하면 결제가 완료 되었습니다. 라고 메세지 띄우기 -->
+
+</body>
+</html>
