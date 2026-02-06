@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inputField{
+            display: flex;
+            gap: 15px;
+        }
+    </style>
+    <script>
+        function 클릭커(){
+            let name = document.getElementById("userName");
+            alert(name.value);
+            name.value="까마귀";
+            let obj = document.querySelector("#userName");
+            console.dir(obj);
+        }
+
+        function 년도구하기(){
+            // 현재문서(document)에서 아이디가 age인 (ById) 태그(Element)를 가져와라 (get)
+            // -> doucment.getElementById("age");
+            let ageTag = document.getElementById("age");
+            let age = ageTag.value; // input에 입력한값은 value에 있다.
+            alert(2026-age);
+        }
+
+        function getAddress(){
+            let input = document.getElementById("address");  // input 태그의 id를 가져오고
+            let div = document.getElementById("result1");    // div 태그의 id를 가져오고
+
+            div.innerText = input.value;  // input태그 value 값을 div 태그 innerText로 넣어준다.
+            // innerHTML  ,  innerText
+            // innerHTML = "<input>";   동작시켜주면 새로운 창이 하나 더 생긴다.
+            // innerText = "<input>";   동작시켜주면 텍스트만 나온다.
+                div.innerHTML = "<input>";
+        }
+    </script>
+</head>
+<body>
+    <div class="inputField">
+        <input type="text" name="userName" id="userName">
+        <button onclick="클릭커()">확인</button>
+    </div>
+    
+    <!-- 문제 : 나이를 입력하여 태어난년도를 alert을 출력하세요-->
+
+    <div class="inputField">
+        <input type="number" name="age" id="age" placeholder="(만)나이를 입력하세요">
+        <button onclick="년도구하기()">계산</button>
+    </div>
+    <!-- 문제 : 주소를 입력하여 div#result1에 출력하세요 
+        힌트 : div 태그에는 value가 없다. 대신 innerText에 넣으면 된다.-->
+
+    <div class="inputField">
+        <input type="text" name="address" id="address" placeholder="주소를 입력하세요">
+        <button onclick="getAddress()">주소입력</button>
+    </div>
+    <div id="result1"></div>
+    
+    
+</body>
+</html>

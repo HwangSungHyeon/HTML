@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h4>type="text"는 문자 숫자 특수문자 입력 가능</h4>
+        <input type="text" name="id" id="id"> <!-- name="id"가 필요없는 경우 : rest API 방식을 사용할때 --> <br>
+    
+        <h4>type="password"는 비밀번호입력시 사용 모든텍스트가 점으로 표현</h4>
+        <input type="password" name="pw" id="pw"> <br>
+    
+        <h4>type="number"는 숫자만 입력가능 min, max, step 설정가능</h4>
+        <input type="number" name="age" id="age" min="10" max="20" step="3"> <br>
+    
+        <h4>type="email"은 이메일형식을 감지할 수 있는 타입</h4>
+        <input type="email" name="email" id="email" placeholder="이메일을 입력하세요"> <br>
+
+        <h4>type="color"는 색상을 선택할수 있는 타입</h4>
+        <input type="color" name="bgcolor" id="bgcolor"> <br>
+
+        <h4>type="range"는 슬라이드 형태로 색, 음량, 밝기 등 조절</h4>
+        <input type="range" name="slide" id="slide"> <br>
+
+        <h4>type="date는 날짜 선택</h4>
+        <input type="date" name="select_date"> <br>
+
+        <h4>type="time"은 시간 선택</h4>
+        <input type="time" name="time"> <br>
+
+        <h4>type="month"는 연,월 선택</h4>
+        <input type="datetime-local"> <br>
+        <h4>날짜타입은 week 연.주차 , datetime-local 날짜 + 시간</h4>
+
+        <h4>type="checkbox"는 다중선택을 위함 타입</h4> <!-- checkbox만 배열로 들어간다.-->
+        <input type="checkbox" name="관심사" value="gmae"> 게임
+        <input type="checkbox" name="관심사" value="movie"> 영화
+        <input type="checkbox" name="관심사" value="music"> 음악
+
+        <h4>type="radio"는 여러선택지 중에 하나만 선택</h4> <!-- radio 는 단일 -->
+        <input type="radio" name="과일" value="banana" id="banana">
+        <label for="banana">바나나</label> <!-- 라벨을 꾸미는 용도 -->
+
+        <input type="radio" name="과일" value=""> 사과
+        <input type="radio" name="과일" value=""> 오렌지
+
+        <h4>type="file"는 파일 업로드를 위한 타입</h4>
+        <input type="file" name="myfile"> <br>
+
+        <h4>type="hidden"는 사용작에게 목적이 아닌 페이지 유지, 관리
+        데이터 활용 및 페이지처리를 위해 사용된다.
+        </h4>
+        <input type="hidden" name="board_id" value="123">
+
+        <button>등록</button>
+    </form>
+</body>
+</html>
