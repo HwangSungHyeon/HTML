@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 분실물 찾기</title>
+    <link rel="stylesheet" href="./owner_claim.css">
+</head>
+<body>
+    <div class="wrap">
+        <main class="main">
+            <form>
+            <div class="formBox">
+                <div class="input-field">
+                    <label>분실물 이름</label>
+                    <input type="text">
+                </div>
+
+                <div class="input-field">
+                    <label>카테고리</label>
+                    <div class="categorybox">
+                        <input type="text" id="categoryInput" placeholder="클릭해서 선택" readonly><!-- readonly : 읽기전용 -->
+                        <span class="arrow">▼</span>
+                    </div>
+                <ul class="categoryList">
+                    <li>가방</li>
+                    <li>지갑</li>
+                    <li>핸드폰</li>
+                    <li>기타</li>
+                </ul>
+                </div>
+
+                <div class="input-field">
+                    <label>특징</label>
+                    <input type="text">
+                </div>
+
+                <hr>
+
+                <div class="input-field">
+                    <label>이름</label>
+                    <input type="text">
+                </div>
+
+                <div class="input-field">
+                    <label>전화번호</label>
+                    <input type="text">
+                </div>
+
+                <div class="findButton">
+                    <button>주인 확인 요청</button>
+                </div>
+            </div>
+
+            </form>
+        </div>
+
+        </main>
+    </div>
+
+
+
+</body>
+</html>
