@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" href="./default.css">
 
+    <link rel="stylesheet" href="./join.css">
+    <script src="./join.js"></script>
+
 </head>
 <body>
     
@@ -32,6 +35,68 @@
         </section>
     <!-- 페이지 본문 내용 영역 -->
         <main id="main">
+    <!-- 회원 가입 영역 -->
+            <div id="joinWrap">
+                <form method="post" action="signUp.jsp">
+                    <h2 class="title">회원가입</h2>
+                    <fieldset class="required">
+                        <legend>필수</legend>
+                        <div class="input-field">
+                            <label for="userId">아이디</label>
+                            <input class="essential" type="text" name="userId" id="userId">
+                        </div>
+                        <div class="input-field">
+                            <label for="userPw">비밀번호</label>
+                            <input class="essential" type="password" name="userPw" id="userPw">
+                        </div>
+                        <div class="input-field">
+                            <label for="userPwRe">비밀번호 확인</label>
+                            <input class="essential" type="password" id="userPwRe">
+                        </div>
+                        <div class="input-field">
+                            <label for="name">이름</label>
+                            <input class="essential" type="text" name="name" id="name">
+                        </div>
+                        <div class="input-field">
+                            <label for="tel">연락처</label>
+                            <input class="essential" type="text" name="tel" id="tel">
+                        </div>
+                    </fieldset>
+                    <fieldset class="choice">
+                        <legend>선택입력</legend>
+                        <h3>관심사</h3>
+                        <ul class="checkList">
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="게임" id="it1"><label for="it1">게임</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="영화" id="it2"><label for="it2">영화</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="국내음악" id="it3"><label for="it3">국내음악</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="컴퓨터" id="it4"><label for="it4">컴퓨터</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="피아노" id="it5"><label for="it5">피아노</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="공구" id="it6"><label for="it6">공구</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="가상화폐" id="it7"><label for="it7">가상화폐</label>
+                            </li>
+                            <li class="checkli">
+                                <input type="checkbox" name="interest" value="음식" id="it8"><label for="it8">음식</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <div class="joinButton">
+                        <button id="joinBt" disabled>가입</button> <!-- disabled : 비활성화 -->
+                    </div>
+                </form>
+            </div>
 
         </main>
         <footer id="footer">
