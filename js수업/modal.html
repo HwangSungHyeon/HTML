@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./modal.css">
+    <script src="./modal.js"></script>
+</head>
+<body>
+    
+    <div id="wrap">
+        <h2 class="head-title">점심메뉴 고객불만</h2>
+        <table id="board-table"> <!-- 표 만드는 방법 -->
+            <thead class="table-head">
+                <tr>
+                    <th class="num">번호</th> <!-- th : 굵기 + 가운데 정렬 -->
+                    <th class="title">제목</th>
+                    <th class="writer">작성자</th>
+                    <th class="date">작성일</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+                <tr>
+                    <td>7</td>
+                    <td class="titleText">돈가스가 너무 질겨요</td>
+                    <td>이성찬</td>
+                    <td>2026-02-11</td>
+                </tr>
+                <!-- tr*4>td*4 -->
+                <tr>
+                    <td>6</td>
+                    <td class="titleText">짜장면 면이 불어서 안비벼져요</td>
+                    <td>차도헝</td>
+                    <td>2026-02-10</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="titleText">뼈다귀해장국에 뼈가 있어요</td>
+                    <td>이동렳</td>
+                    <td>2026-02-09</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="titleText">순대가 너무 비려요</td>
+                    <td>강하옇</td>
+                    <td>2026-02-08</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="titleText">김치볶음밥에 김치는 빼주세요</td>
+                    <td>돌부처 이창호</td>
+                    <td>2026-02-07</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2">1</td> <!-- colsapn = 열을 몇칸을 합칠것인지 -->
+
+                    <td>3</td>
+                    <td rowspan="2">4</td> <!-- rowspan = 줄을 몇줄 합칠것인지 -->
+                </tr>
+                <tr>
+                    <td rowspan="2" colspan="3">5</td>
+
+
+
+                </tr>
+                <tr>
+
+
+
+                    <td>12</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modalWrap" class="hide">
+        <div id="modalBack"></div>
+        <div id="modalContent">
+            <div class="close"><i class="bi bi-x-circle"></i></div>
+            <div class="content">
+                <h3 class="d-title">순대가 너무 비려요</h3>
+                <div class="detail">
+                    <span>내용</span>
+                    <p>이렇게 비린 순대는 처음입니다. 환불해주시고
+                        순대먹고 충격받았으니 정신적 피해보상도
+                        해주세요.
+                    </p>
+                </div>
+                <div class="detail">
+                    <span>작성자</span>
+                    <p>병천순대</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

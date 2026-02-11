@@ -4,6 +4,48 @@
     box-sizing: border-box;
 }
 .wrap {
+    width: 1200px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.header{
+    width: 1200px;
+    position: fixed;
+    height: 80px;
+    box-sizing: border-box;
+    z-index: 10;   /* 다른 요소보다 위에 표시 */
+}
+.square{
+    width: 1200px;
+    padding: 20px;
+    margin: 0px;
+}
+header>ul>li {
+    height: 80px;
+    width: 180px;
+    list-style: none;
+    display: flex;
+    align-items: center;     /* 세로 가운데 */
+    justify-content: center; /* 가로 가운데 */
+
+}
+nav>ul>li a{
+    color:white;
+    width: 250px;
+    padding: 10px 80px;
+    background: rgb(10, 20, 40);
+    justify-content: center;
+    text-decoration: none;
+}
+header ul {
+    display: flex;
+    justify-content: space-between;  /* 양 끝에 배치 + 균등 간격 */
+    align-items: center;             /* 세로 가운데 정렬 */
+    list-style: none;
+    padding: 0px;
+}
+.main{
     width: 800px;
     margin: 60px auto;
     border: 1px solid #ddd;
