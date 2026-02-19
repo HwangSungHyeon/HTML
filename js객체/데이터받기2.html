@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #infoTable{
+            width: 500px;
+        }
+        #infoTable td{
+            border-top: 1px solid #aaa;
+            padding: 8px 0;
+        }
+        .num{ width: 100px; text-align: center;}
+        .name{ width: 250px; text-align: center;}
+        .score{ width: 150px; text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <table id="infoTable">
+            <tr>
+                <th class="num">ID</th>
+                <th class="name">이름</th>
+                <th class="score">점수</th>
+            </tr>
+            <tbody id="info"></tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    loadData(); // 함수실행
+
+    async function loadData() { // 함수정의 : 실행 아니다
+        // 서버로부터 데이터받기
+        const response = await fetch("./testData.json");
+        // json을 객체로 변환
+        const data = await response.json();
+
+        let tbody = document.getElementById("info");
+        
+        // 객체 배열인경우 map을 이용하면 화면 출력 만들기 편하다.
+        // forEach로도 만들 수 있다.
+        const rows = data.map(
+            row => `
+                <tr>
+                    <td class="num">${row.id}</td>
+                    <td class="name">${row.name}</td>
+                    <td class="score">${row.score}</td>
+            `
+        ).join("");
+        
+        tbody.innerHTML=rows;
+    }
+</script>

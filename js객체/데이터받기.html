@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <ul id="info">
+
+        </ul>
+    </div>
+
+</body>
+</html>
+<script>
+    dataLoad(); // 함수호출 ( 함수실행 코드 )
+
+    // 서버로부터 데이터 받아오기 json
+    async function dataLoad() {   // 함수 정의
+        const response = await fetch(
+            "./testone.json"
+        );
+
+        const data = await response.json();
+
+        console.log(data);
+
+        // 서버로 부터 받은 데이터를 화면에 출력하는 방법
+        // 1. createElement를 통해 태그를 만들고 append, appendChild로 추가하기
+        // 2. 백틱 `` 과 map을 사용하여 화면에 출력하기
+
+        document.getElementById("info").innerHTML = 
+        `<li> id : ${data.id} </li>
+        <li> 이름 : ${data.name} </li>
+        <li> 점수 : ${data.score} </li>
+        `;
+    }
+
+</script>

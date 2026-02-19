@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 복습 -- 
+    <input type="text" id="myName">
+    <button id="bt">출력</button> 
+    //-------------------------------- -->
+    
+    이름 : <input type="text" id="myName"> <br>
+    나이 : <input type="number" id="age"> <br>
+    직업 : <input type="text" id="job"> <br>
+    <button id="bt">보내기</button>
+
+
+</body>
+</html>
+<script>
+// 복습--
+    // 이름을 입력 받아 알림창에 출력하세요.
+    // input 태그의 id는 myName
+    // 알림창 -> alert
+    // 이름을 입력받아서 알림창에 출력하는 방법 두가지 
+    // 1. 버튼 태그를 클릭하여 출력하는 방법 : click 이벤트
+    // 2. 이름을 입력하면 출력하는 방법 : keyup 아벤트
+
+    // // 버튼 태그(객체) 가져오기
+    // let bt = document.getElementById("bt");
+    // // 버튼 객체에 click 이벤트 등록하기
+    // bt.addEventListener("click", function(){
+    //     let name = document.getElementById("myName");
+    //     alert(name.value);
+    // });
+//---------------------------------------------------------
+
+    // 오늘 수업
+    // 자바스크립트 객체와 json
+    // html에서 입력한 내용이나 선택한 값을 객체로 생성하여
+    // json으로 변환하기
+
+    // form 태그를 통한 데이터 전잘이 아닌 -- API 통신 방법 --
+
+    // html에서 사용자가 입력 또는 선택한 데이터를 자바(서버)에
+    // 보내려면 먼저 객체로 만들어주고
+    // 그 다음에 json으로 변환하여 get, post 방식중 하나로 보낸다.
+
+    // 1. 버튼 객체 가져오기
+    let sendBt = document.getElementById("bt");
+
+    // 2. 버튼 객체에 클릭 이벤트 등록하기 - 버튼을 클릭하면 input값을 가져와 객체 생성
+    sendBt.addEventListener("click", send );
+
+    async function send(){ // 버튼을 클릭하면 동작하는 함수 : 객체 생성하고, json 변환
+        let name = document.getElementById("myName").value;
+        let age = document.getElementById("age").value;
+        let job = document.getElementById("job").value;
+
+        // input 값 객체로 만들기 - key:value 구조로 객체 만들기
+        let data = { myName:name , myAge:age , myJob:job };
+
+        // 자바스크립트 객체를 json으로 변환 : json - javascript object notation
+        let jsonData = JSON.stringify(data);
+        alert(jsonData);
+
+        // json 을 서버(자바)에 보내기
+
+        const response = await fetch("/api/test.jsp", { // 내가 설정한 주소로 변환
+                method:"POST", // 어떤 방식으로 보낼것인지 GET,POST 등
+                headers : { "Content-type": "application/json"} ,
+                body : jsonData
+            }
+        );
+
+        // 서버가 받고 결과를 준다. 결과는 현재 response 변수에 저장됨
+        //  결과는 json으로 받는다. 그래서 json을 자바스크립트 객체로 변환
+        const result = await response.json(); // json 피싱 ( JSON.parse )
+
+        if(result.ok){
+            alert("성공");
+        }else{
+            alert("실패");
+            console.log(result);
+        }
+
+        // html에서의 사용자 데이터를 서버에 보내기
+        // 1. 사용자가 입력 또는 선택한 데이터를 객체화 하기
+        // 2. 객체를 JSON으로 변환
+        // 3. fetch 함수를 통해 서버에 보내기 : await, async 사용
+        // 4. 서버의 결과를 받아서 사용자에게 알림
+    }
+
+    async function APISend(url, method, json) {
+        return await fetch(url, { // 내가 설정한 주소로 변환
+                method: method, // 어떤 방식으로 보낼것인지 GET,POST 등
+                headers : { "Content-type": "application/json"} ,
+                body : json
+            }
+        );
+        
+    }
+
+    // const response = APISend("/api/test", "POST" , jsonData);
+
+    // fetch , await
+    // 브라우저에 내장된 WEB API 함수 이다.
+    // fetch(주소) : 서버에 요청을 보낸다.
+    //  보냈으면 결과를 받아야 한다. 결과를 받기 위해서 await를 사용한다.
+    //  결과는 서버에서 처리 하는 데이터의 양이나 처리속도에 따라 늦을수도 빠를수도 있다.
+    //  그래서 결과가 언제 올지 모르기 때문에 alert를 이용해서 결과가 오기전에
+    // 다른 작업이 가능하도록 하는 비동기 방식으로 처리해야 한다.
+    // function 앞에 async를 붙이는 이유는
+    //  fetch를 통해 전달을 하고 결과를 받을때까지 기다려야 한다.
+    //  보내고 결과 받고 이 흐름은 동기이다.
+    //  fetch가 사용되는 함수에 흐름이 관리 되기 위해서는 async를 사용해야 한다.
+
+    // fetch는 택배를 보내는 것
+    //  promise는 택배 배송 상태가 배송중으로 변경되는 것
+    //  await는 택배 배송완료를 기다리는 것(택배 물건 받기 전까지)
+    //  async는 배송추적을 하는 것
+
+
+    // 동기, 비동기
+    // 동기 : 코드가 위에서 아래로 한줄씩 끝날때까지 기다리면서 실행되는것
+    //        실행 순서가 명확, 예측이 쉬움, 오래걸리는 작업이 있다면 전체가 멈춤
+    // console.log("1번 작업 시작")
+    // for(var i=1; i<10000000; i++) {}
+    // console.log("1번 작업 끝")
+    // conlole.log("2번 작업 시작")
+
+    // 비동기 : 작업을 예약만 해두고 기다리지 않고 다음코드로 넘어간다.
+    //          여러작업을 동시에 실행하는것처럼 처리하는 방식
+
+
+</script>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품상세</title>
+    <style>
+
+        #wrap{
+            display: flex;
+            gap: 20px;
+        }
+        img{ width: 100%;}
+
+        .left{
+            width: 300px;
+            padding: 20px;
+            position: relative;
+        }
+        .slideBox{
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        .slide{ /* ul 태그 */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            position: relative;
+        }
+        .slideItem{ /* li 태그 */
+            width: 300px;
+            /* display: none; */
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .slideItem.active{
+            /* display: block; */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+
+        <div class="left">
+            <div class="slideBox">
+                <ul class="slide">
+                    <li class="slideItem active">
+                        <img class="item">
+                    </li>
+                    <li class="slideItem">
+                        <img class="item">
+                    </li>
+                    <li class="slideItem">
+                        <img class="item">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <input type="hidden" id="price" value="2290400">
+            <h3>갤럭시 시리즈 공개!</h3>
+            <p>가격 : 2,290,400원~</p>
+            <div>
+                <select id="color">
+                    <option value="흰색">흰색</option>
+                    <option value="검은색">검은색</option>
+                    <option value="민트색">민트색</option>
+                    <option value="파란색">파란색</option>
+                </select>
+            </div>
+            <div>
+                수량 : <input type="number" id="amount" min="1" max="10" value="1">
+            </div>
+            <button id="cart">장바구니</button>
+            <button id="buy">구매</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const imgList = ["1.jpg", "2.jpg", "3.jpg"];
+
+    const item = document.getElementsByClassName("item");
+    for(var i in item){
+        item[i].src = "./"+imgList[i];
+    }
+
+    // setInterval( 함수(실행내용) , 시간(ms) );
+
+    // 이미지를 3초에 한번씩 이동시켜서 보이게 하기
+    // 시간을 다루는 함수 : setTimeout , setInterval
+    // setTimeout : 지정한 시간 이후에 한번만 실행
+    // setInterval : 지정한 시간 간격으로 실행
+
+    // 옛날 방식이라 많이 사용하지않음 --
+    // let a = -300;
+    // setInterval( function(){
+    //     // 이미지 슬라이드 만들기
+    //     let slide = document.querySelector(".slide");
+    //     slide.style.left = a+"px";
+    //     if(a == -600)
+    //         a=0;
+    //     else
+    //         a += -300;
+    // }, 3000);
+    // --
+
+    // li태그 전부 가져오기
+    const slides = document.querySelectorAll(".slideItem");
+    let idx = 0; // slides는 li태그 여러개 즉, 배열
+
+    setInterval( function(){
+        // 이미지 슬라이드 만들기
+        slides[idx].classList.remove("active"); // 현재보이는 이미지 active 제거
+        idx++;
+        if( idx >= slides.length ) idx=0; // 마지막 이미지 출력하면 다시 첫번째로 오게함. 
+        slides[idx].classList.add("active");
+        
+    }, 3000);
+
+    // 장바구니 주소
+    const carURL = "http://dwstd.ipdisk.co.kr/dataview/test.php";
+    // 장바구니 버튼 클릭하면 장바구니에 저장될 수 있게
+    // 현재 선택한 값들을 서버에 전달하기
+
+    document.querySelector("#cart").addEventListener("click", cartSave);
+
+    async function cartSave(){
+        let price = document.getElementById("price").value;
+        let amount = document.getElementById("amount").value;
+        let color = document.getElementById("color").value;
+
+        // 객체 생성 및 json으로 변환
+        let data = {
+            itemPrice : price ,
+            itemAmount : amount , 
+            itemSize : color
+        };
+        let jsonData = JSON.stringify(data);
+
+        // 서버에 보내기
+        const response = await fetch("http://dwstd.ipdisk.co.kr/dataview/test.php", {
+            method : "POST",
+            headers : { "Content-Type":"application/json"},
+            body : jsonData
+        });
+
+        const result = await response.json();
+        if( result.ok ){
+            let isMove = confirm("장바구니에 담았습니다. 이동하시겠습니까?");
+            if( isMove ) location.href="장바구니 웹주소";
+        }else{
+            alert("장바구니 담기 실패 !");
+        }
+    }
+</script>
